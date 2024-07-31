@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
 
 const TripCard = ({ id, title, description, image }) => {
   return (
-    <Card sx={{ maxWidth: 345, margin: 2 }}>
+    <Card sx={{ maxWidth: 345, margin: 2}}>
       <CardMedia
         component="img"
         height="140"
@@ -26,7 +26,7 @@ const TripCard = ({ id, title, description, image }) => {
       </CardContent>
       <CardActions>
         <Button size="small" color="primary" component={Link} to={`/trips/${id}`}>
-          View Details
+          點我看詳細行程
         </Button>
       </CardActions>
     </Card>

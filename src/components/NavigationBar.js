@@ -7,16 +7,22 @@ import { Link } from 'react-router-dom';
 
 const NavigationBar = () => {
   return (
-    <AppBar position="static">
-      <Toolbar>
-        <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-          Travel Agency
-        </Typography>
-        <Button color="inherit" component={Link} to="/">Home</Button>
-        <Button color="inherit" component={Link} to="/about">About</Button>
-        <Button color="inherit" component={Link} to="/trips">Trips</Button>
-      </Toolbar>
-    </AppBar>
+    <div style={{
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+    }}>
+      <AppBar position="static" elevation = {0} sx={{ backgroundColor: 'white', color: 'orange',width: '50%' }}>
+        <Toolbar>
+          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+            米康假期
+          </Typography>
+          <Button color="inherit" component={Link} to="/">首頁</Button>
+          <Button color="inherit" component={Link} to="/about">聯絡我們</Button>
+          {/* <Button color="inherit" component={Link} to="/trips">行程表</Button> */}
+        </Toolbar>
+      </AppBar>
+    </div>
   );
 };
 
