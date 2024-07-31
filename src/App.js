@@ -1,36 +1,29 @@
-import logo from './logo.svg';
 import './App.css';
 import React from 'react';
 import TripCard from './components/TripCard';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { Route, Routes } from 'react-router-dom';
+import NavigationBar from './components/NavigationBar';
+import Home from './pages/Home';
+import About from './pages/About';
+import TripDetail from './pages/TripDetail';
+
+const trips = [
+  { title: 'Trip 1', description: 'Description of Trip 1', image: 'https://via.placeholder.com/150' },
+  { title: 'Trip 2', description: 'Description of Trip 2', image: 'https://via.placeholder.com/150' },
+  // 你可以添加更多行程
+];
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-        <div className="container mt-5">
-          <div className="row">
-            {trips.map((trip, index) => (
-              <div key={index} className="col-md-4">
-                <TripCard {...trip} />
-              </div>
-            ))}
-          </div>
-      </div>
-    </div>
+    <>
+      <NavigationBar />
+      <Routes>
+        <Route exact path="/" component={Home} />
+        <Route path="/about" component={About} />
+        <Route path="/trips/:id" component={TripDetail} />
+      </Routes>
+    </>
   );
 }
 
