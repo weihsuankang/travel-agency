@@ -1,22 +1,36 @@
-// src/components/TripCard.js
 import React from 'react';
-import { Card, Button } from 'react-bootstrap';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Typography from '@mui/material/Typography';
+import Button from '@mui/material/Button';
+import CardActions from '@mui/material/CardActions';
 import { Link } from 'react-router-dom';
 
-
 const TripCard = ({ id, title, description, image }) => {
-    return (
-        <Card style={{ width: '18rem' }}>
-            <Card.Img variant="top" src={image} />
-            <Card.Body>
-                <Card.Title>{title}</Card.Title>
-                <Card.Text>{description}</Card.Text>
-                <Link to={`/trips/${id}`}>
-                    <Button variant="primary">View Details</Button>
-                </Link>
-            </Card.Body>
-        </Card>
-    );
+  return (
+    <Card sx={{ maxWidth: 345, margin: 2 }}>
+      <CardMedia
+        component="img"
+        height="140"
+        image={image}
+        alt={title}
+      />
+      <CardContent>
+        <Typography gutterBottom variant="h5" component="div">
+          {title}
+        </Typography>
+        <Typography variant="body2" color="text.secondary">
+          {description}
+        </Typography>
+      </CardContent>
+      <CardActions>
+        <Button size="small" color="primary" component={Link} to={`/trips/${id}`}>
+          View Details
+        </Button>
+      </CardActions>
+    </Card>
+  );
 };
 
 export default TripCard;
