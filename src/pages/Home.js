@@ -3,6 +3,7 @@ import TripCard from '../components/TripCard';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
+import backgroundPicture from '../images/backgroundPicture.jpg';
 import homePagePicture from '../images/homepage.jpg';
 import pattayaPicture from '../images/pattaya.jpg';
 import shrimpPicture from '../images/shrimp.jpg';
@@ -18,7 +19,7 @@ const Home = () => {
   return (
     <div>
       <Box sx={{ width: '100%', height: '400px', 
-        backgroundColor: 'orange',
+        backgroundImage: `url(${backgroundPicture})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
@@ -28,7 +29,7 @@ const Home = () => {
           variant="h1"
           color="white"
           align="center"
-          sx={{position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', zIndex: 1}}
+          sx={{position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', zIndex: 1, fontWeight: 'bold'}}
         >
           To Travel is to Live.
         </Typography>
@@ -43,7 +44,7 @@ const Home = () => {
       }}>
         <Box sx={{ width: { xs: '90%', md: '50%' }, mt: 3, textAlign: 'center' }}>
           <Typography variant="h4">
-            火熱主打行程
+            熱門行程
           </Typography>
         </Box>
         <Grid container spacing={2} sx={{ width: { xs: '90%', md: '50%' } }}>

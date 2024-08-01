@@ -6,6 +6,9 @@ import Container from '@mui/material/Container';
 import Paper from '@mui/material/Paper';
 import Divider from '@mui/material/Divider';
 import Grid from '@mui/material/Grid';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import CardActionArea from '@mui/material/CardActionArea';
 
 const TripDetail = () => {
   const { id } = useParams();
@@ -62,12 +65,18 @@ const TripDetail = () => {
         {trip.itinerary.map((day, index) => (
           <Box key={index} sx={{ marginBottom: 2 }}>
             <Typography variant="h6" sx={{ mb: 2 }} align="center">{day.day}</Typography>
-            <Typography variant="body1" sx={{ mb: 1 }}>{day.dayDescription}</Typography>
+            <Typography variant="body1" sx={{ mb: 1, fontWeight: 'bold' }} dangerouslySetInnerHTML={{ __html: day.dayDescription }} />
             <Grid container spacing={2} sx={{ mb: 2 }}>
               {day.attractions.map((attraction, idx) => (
                 <Grid item xs={12} key={idx}>
-                  <Typography variant="body1">{attraction.attractionTitle}</Typography>
-                  <Typography variant="body1">{attraction.attractionDescription}</Typography>
+                  <CardActionArea href={attraction.link} target="_blank" rel="noopener noreferrer">
+                    <Card sx={{ mb: 2 }}>
+                      <CardContent>
+                        <Typography variant="body1">{attraction.attractionTitle}</Typography>
+                        <Typography variant="body1">{attraction.attractionDescription}</Typography>
+                      </CardContent>
+                    </Card>
+                  </CardActionArea>
                 </Grid>
               ))}
             </Grid>
@@ -81,7 +90,7 @@ const TripDetail = () => {
           </Box>
         ))}
 
-        <Typography variant="body1" sx={{ mt: 2 }}>{trip.remark}</Typography>
+        <Typography variant="body1" sx={{ mt: 2 }} dangerouslySetInnerHTML={{ __html: trip.remark }} />
       </Paper>
     </Container>
   );
