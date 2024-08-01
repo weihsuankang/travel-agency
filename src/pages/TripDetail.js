@@ -1,54 +1,89 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
-
-const tripDetails = {
-  1: {
-    title: '泰便宜5天',
-    description: '丹能沙朵水上市場.安帕瓦爆笑鐵路市場. J Park日本村.All Star全明星號遊輪.爽泰莊園.格蘭島出海【無購物】',
-    itinerary: [
-      {
-        day: '第一天',
-        description: '桃園/曼谷。今天集合於桃園國際機場搭機飛往泰國首都~曼谷，抵達後送往飯店休息。',
-        meals: { breakfast: 'XXX', lunch: 'XXX', dinner: '傳統泰國東北餐+泰式奶茶350B' },
-        hotel: '曼谷 Sriwaree Airport / IBIS Style 50/ Jazzotel /New Town In Town/ Medison/Iconic Ari或同等'
-      },
-      {
-        day: '第二天',
-        description: '曼谷~丹能沙朵歐式水上市場~安帕瓦爆笑鐵路市場~愛侶灣四面佛~中央百貨~BIG C。',
-        meals: { breakfast: '飯店內', lunch: '湄公河花園泰式餐350B', dinner: '方便逛街 敬請自理' },
-        hotel: '曼谷 Sriwaree Airport / IBIS Style 50/ Jazzotel /New Town In Town/ Medison/Iconic Ari或同等'
-      },
-      // 添加更多天數的詳細信息...
-    ]
-  },
-  // 添加更多行程...
-};
+import Container from '@mui/material/Container';
+import Paper from '@mui/material/Paper';
+import Divider from '@mui/material/Divider';
+import Grid from '@mui/material/Grid';
 
 const TripDetail = () => {
   const { id } = useParams();
-  const trip = tripDetails[id];
+  const [trip, setTrip] = useState(null);
+
+  useEffect(() => {
+    const loadTripData = async () => {
+      try {
+        const response = await import(`../data/trip${id}.json`);
+        setTrip(response.default);
+      } catch (error) {
+        console.error("Error loading trip data:", error);
+      }
+    };
+
+    loadTripData();
+  }, [id]);
 
   if (!trip) {
     return <Typography variant="h5" align="center">行程不存在</Typography>;
   }
 
   return (
-    <Box sx={{ padding: 2 }}>
-      <Typography variant="h4" gutterBottom>{trip.title}</Typography>
-      <Typography variant="body1" gutterBottom>{trip.description}</Typography>
-      {trip.itinerary.map((day, index) => (
-        <Box key={index} sx={{ marginBottom: 2 }}>
-          <Typography variant="h6">{day.day}</Typography>
-          <Typography variant="body1">{day.description}</Typography>
-          <Typography variant="body2">早餐：{day.meals.breakfast}</Typography>
-          <Typography variant="body2">午餐：{day.meals.lunch}</Typography>
-          <Typography variant="body2">晚餐：{day.meals.dinner}</Typography>
-          <Typography variant="body2">酒店：{day.hotel}</Typography>
-        </Box>
-      ))}
-    </Box>
+    <Container maxWidth="md" sx={{ mt: 5 }}>
+      <Paper elevation={3} sx={{ p: 3 }}>
+        <Typography variant="h4" gutterBottom align="center">{trip.travelTitle}</Typography>
+        <Typography variant="body1" gutterBottom align="center">{trip.travelTitleDescription}</Typography>
+        <Divider sx={{ my: 2, borderColor: 'rgba(0, 0, 0, 0.8)' }} />
+        <Typography variant="h6" gutterBottom align="center">參考航班</Typography>
+        <Grid container spacing={2} justifyContent="center">
+          <Grid item xs={12} sm={6}>
+            <Typography variant="subtitle1" align="center">去程</Typography>
+            <Box sx={{ marginBottom: 2 }} textAlign="center">
+              <Typography variant="body1">航班: {trip.airplane[0].airline} {trip.airplane[0].flightNumber}</Typography>
+              <Typography variant="body1">出發城市: {trip.airplane[0].departureCity}</Typography>
+              <Typography variant="body1">抵達城市: {trip.airplane[0].arrivalCity}</Typography>
+              <Typography variant="body1">出發時間: {trip.airplane[0].departureTime}</Typography>
+              <Typography variant="body1">到達時間: {trip.airplane[0].arrivalTime}</Typography>
+            </Box>
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <Typography variant="subtitle1" align="center">回程</Typography>
+            <Box sx={{ marginBottom: 2 }} textAlign="center">
+              <Typography variant="body1">航班: {trip.airplane[1].airline} {trip.airplane[1].flightNumber}</Typography>
+              <Typography variant="body1">出發城市: {trip.airplane[1].departureCity}</Typography>
+              <Typography variant="body1">抵達城市: {trip.airplane[1].arrivalCity}</Typography>
+              <Typography variant="body1">出發時間: {trip.airplane[1].departureTime}</Typography>
+              <Typography variant="body1">到達時間: {trip.airplane[1].arrivalTime}</Typography>
+            </Box>
+          </Grid>
+        </Grid>
+        <Divider sx={{ my: 2, borderColor: 'rgba(0, 0, 0, 0.8)' }} />
+
+        {trip.itinerary.map((day, index) => (
+          <Box key={index} sx={{ marginBottom: 2 }}>
+            <Typography variant="h6" sx={{ mb: 2 }} align="center">{day.day}</Typography>
+            <Typography variant="body1" sx={{ mb: 1 }}>{day.dayDescription}</Typography>
+            <Grid container spacing={2} sx={{ mb: 2 }}>
+              {day.attractions.map((attraction, idx) => (
+                <Grid item xs={12} key={idx}>
+                  <Typography variant="body1">{attraction.attractionTitle}</Typography>
+                  <Typography variant="body1">{attraction.attractionDescription}</Typography>
+                </Grid>
+              ))}
+            </Grid>
+            <Box sx={{ display: 'flex', justifyContent: 'space-between', mb: 2 }}>
+              <Typography variant="body1">早餐: {day.meals.breakfast}</Typography>
+              <Typography variant="body1">午餐: {day.meals.lunch}</Typography>
+              <Typography variant="body1">晚餐: {day.meals.dinner}</Typography>
+            </Box>
+            <Typography variant="body1" sx={{ mb: 2 }}>酒店: {day.hotel}</Typography>
+            <Divider sx={{ my: 2, borderColor: 'rgba(0, 0, 0, 0.8)' }} />
+          </Box>
+        ))}
+
+        <Typography variant="body1" sx={{ mt: 2 }}>{trip.remark}</Typography>
+      </Paper>
+    </Container>
   );
 };
 
