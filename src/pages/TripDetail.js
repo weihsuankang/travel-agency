@@ -3,12 +3,17 @@ import { useParams } from 'react-router-dom';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
-import Paper from '@mui/material/Paper';
 import Divider from '@mui/material/Divider';
 import Grid from '@mui/material/Grid';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardActionArea from '@mui/material/CardActionArea';
+import BreakfastDiningIcon from '@mui/icons-material/BreakfastDining';
+import LunchDiningIcon from '@mui/icons-material/LunchDining';
+import DinnerDiningIcon from '@mui/icons-material/DinnerDining';
+import Accordion from '@mui/material/Accordion';
+import AccordionSummary from '@mui/material/AccordionSummary';
+import AccordionDetails from '@mui/material/AccordionDetails';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import StarIcon from '@mui/icons-material/Star';
+import HotelIcon from '@mui/icons-material/Hotel';
 
 const TripDetail = () => {
   const { id } = useParams();
@@ -33,7 +38,7 @@ const TripDetail = () => {
 
   return (
     <Container maxWidth="md" sx={{ mt: 5 }}>
-      <Paper elevation={3} sx={{ p: 3 }}>
+      <Box sx={{ p: 3 }}>
         <Typography variant="h4" gutterBottom align="center">{trip.travelTitle}</Typography>
         <Typography variant="body1" gutterBottom align="center">{trip.travelTitleDescription}</Typography>
         <Divider sx={{ my: 2, borderColor: 'rgba(0, 0, 0, 0.8)' }} />
@@ -64,34 +69,44 @@ const TripDetail = () => {
 
         {trip.itinerary.map((day, index) => (
           <Box key={index} sx={{ marginBottom: 2 }}>
-            <Typography variant="h6" sx={{ mb: 2 }} align="center">{day.day}</Typography>
+            <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', mb: 2 }}>
+              <StarIcon sx={{ color: 'orange' }} />
+              <Typography variant="h6" align="center" sx={{ mx: 1 }}>
+                {day.day}
+              </Typography>
+              <StarIcon sx={{ color: 'orange' }} />
+            </Box>
             <Typography variant="body1" sx={{ mb: 1, fontWeight: 'bold' }} dangerouslySetInnerHTML={{ __html: day.dayDescription }} />
             <Grid container spacing={2} sx={{ mb: 2 }}>
               {day.attractions.map((attraction, idx) => (
                 <Grid item xs={12} key={idx}>
-                  <CardActionArea href={attraction.link} target="_blank" rel="noopener noreferrer">
-                    <Card sx={{ mb: 2 }}>
-                      <CardContent>
-                        <Typography variant="body1">{attraction.attractionTitle}</Typography>
-                        <Typography variant="body1">{attraction.attractionDescription}</Typography>
-                      </CardContent>
-                    </Card>
-                  </CardActionArea>
+                  <Accordion>
+                    <AccordionSummary
+                      expandIcon={<ExpandMoreIcon />}
+                      aria-controls={`panel${idx}-content`}
+                      id={`panel${idx}-header`}
+                    >
+                      <Typography variant="body1">{attraction.attractionTitle}</Typography>
+                    </AccordionSummary>
+                    <AccordionDetails>
+                      <Typography variant="body1" dangerouslySetInnerHTML={{ __html: attraction.attractionDescription }}></Typography>
+                    </AccordionDetails>
+                  </Accordion>
                 </Grid>
               ))}
             </Grid>
             <Box sx={{ display: 'flex', justifyContent: 'space-between', mb: 2 }}>
-              <Typography variant="body1">早餐: {day.meals.breakfast}</Typography>
-              <Typography variant="body1">午餐: {day.meals.lunch}</Typography>
-              <Typography variant="body1">晚餐: {day.meals.dinner}</Typography>
+              <Typography variant="body1"><BreakfastDiningIcon sx={{color: 'orange'}}/>  早餐: {day.meals.breakfast}</Typography>
+              <Typography variant="body1"><LunchDiningIcon sx={{color: 'orange'}}/>  午餐: {day.meals.lunch}</Typography>
+              <Typography variant="body1"><DinnerDiningIcon sx={{color: 'orange'}}/>  晚餐: {day.meals.dinner}</Typography>
             </Box>
-            <Typography variant="body1" sx={{ mb: 2 }}>酒店: {day.hotel}</Typography>
+            <Typography variant="body1" sx={{ mb: 2 }}><HotelIcon sx={{color: 'orange'}}/>  酒店: {day.hotel}</Typography>
             <Divider sx={{ my: 2, borderColor: 'rgba(0, 0, 0, 0.8)' }} />
           </Box>
         ))}
 
         <Typography variant="body1" sx={{ mt: 2 }} dangerouslySetInnerHTML={{ __html: trip.remark }} />
-      </Paper>
+      </Box>
     </Container>
   );
 };
