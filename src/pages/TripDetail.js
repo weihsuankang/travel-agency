@@ -8,6 +8,7 @@ import Grid from '@mui/material/Grid';
 import BreakfastDiningIcon from '@mui/icons-material/BreakfastDining';
 import LunchDiningIcon from '@mui/icons-material/LunchDining';
 import DinnerDiningIcon from '@mui/icons-material/DinnerDining';
+import LocalAirportIcon from '@mui/icons-material/LocalAirport';
 import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
@@ -42,7 +43,11 @@ const TripDetail = () => {
         <Typography variant="h4" gutterBottom align="center">{trip.travelTitle}</Typography>
         <Typography variant="body1" gutterBottom align="center">{trip.travelTitleDescription}</Typography>
         <Divider sx={{ my: 2, borderColor: 'rgba(0, 0, 0, 0.8)' }} />
-        <Typography variant="h6" gutterBottom align="center">參考航班</Typography>
+        <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', mb: 2 }}>
+            <Typography variant="h6" gutterBottom align="center">
+                <LocalAirportIcon sx={{color: 'orange'}}/>  參考航班  <LocalAirportIcon sx={{color: 'orange'}}/>
+            </Typography>
+        </Box>
         <Grid container spacing={2} justifyContent="center">
           <Grid item xs={12} sm={6}>
             <Typography variant="subtitle1" align="center">去程</Typography>
@@ -77,10 +82,11 @@ const TripDetail = () => {
               <StarIcon sx={{ color: 'orange' }} />
             </Box>
             <Typography variant="body1" sx={{ mb: 1, fontWeight: 'bold' }} dangerouslySetInnerHTML={{ __html: day.dayDescription }} />
+            <Divider sx={{ my: 2, borderColor: 'rgba(0, 0, 0, 0.8)' }} />
             <Grid container spacing={2} sx={{ mb: 2 }}>
               {day.attractions.map((attraction, idx) => (
                 <Grid item xs={12} key={idx}>
-                  <Accordion>
+                  <Accordion sx={{ backgroundColor: '#FFEEDD', color: '#333'}}>
                     <AccordionSummary
                       expandIcon={<ExpandMoreIcon />}
                       aria-controls={`panel${idx}-content`}
@@ -95,6 +101,7 @@ const TripDetail = () => {
                 </Grid>
               ))}
             </Grid>
+            <Divider sx={{ my: 2, borderColor: 'rgba(0, 0, 0, 0.8)' }} />
             <Box sx={{ display: 'flex', justifyContent: 'space-between', mb: 2 }}>
               <Typography variant="body1"><BreakfastDiningIcon sx={{color: 'orange'}}/>  早餐: {day.meals.breakfast}</Typography>
               <Typography variant="body1"><LunchDiningIcon sx={{color: 'orange'}}/>  午餐: {day.meals.lunch}</Typography>

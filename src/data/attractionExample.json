@@ -1,0 +1,20 @@
+{
+    "day": "第天",
+    "dayDescription": "",
+    "attractions": [
+      {
+        "attractionTitle": "",
+        "attractionDescription": ""
+      },
+      {
+        "attractionTitle": "",
+        "attractionDescription": ""
+      },
+      {
+        "attractionTitle": "",
+        "attractionDescription": ""
+      }
+    ],
+    "meals": { "breakfast": "", "lunch": "", "dinner": "" },
+    "hotel": ""
+  }
