@@ -1,0 +1,131 @@
+{
+    "travelTitle": "泰便宜 6 天",
+    "travelTitleDescription": "UNESCO世界醫材大城府｜古蹟樹中佛｜J Park日本村｜All Star 全明星號遊輪｜爽泰莊園｜格蘭島出海【無購物】",
+    "airplane": [
+      {
+        "airline": "泰越捷航空",
+        "flightNumber": "VZ563",
+        "departureCity": "桃園",
+        "arrivalCity": "曼谷",
+        "departureTime": "15:40",
+        "arrivalTime": "18:35"
+      },
+      {
+        "airline": "泰越捷航空",
+        "flightNumber": "VZ564",
+        "departureCity": "曼谷",
+        "arrivalCity": "桃園",
+        "departureTime": "15:00",
+        "arrivalTime": "19:45"
+      }
+    ],
+    "itinerary": [
+      {
+        "day": "第 1 天",
+        "dayDescription": "桃園/曼谷<br /><br />今天集合於桃園國際機場搭機飛往泰國首都~曼谷，抵達後送往飯店休息。",
+        "attractions": [],
+        "meals": { "breakfast": "XXX", "lunch": "XXX", "dinner": "傳統泰國東北餐+泰式奶茶 350B" },
+        "hotel": "曼谷 Sriwaree Airport / IBIS Style 50/ Jazzotel / New Town In Town / Medison/Iconic Ari 或同等"
+      },
+      {
+        "day": "第 2 天",
+        "dayDescription": "曼谷~UNESCO世界醫材大城府～古蹟樹中佛～Lion Park 大城獅虎園～可愛動物～大象表演～猴子秀～(自費)吉普車長頸鹿合照（請提前預訂）～(自費)進老虎籠子裡餵食老虎+牽老虎散步～曼谷~愛侶灣四面佛~中央百貨~BIG C",
+        "attractions": [
+            {
+            "attractionTitle": "泰國大城 Ayutthaya",
+            "attractionDescription": "又名阿瑜陀耶，位於曼谷北方約76公里的歷史古城，距離曼谷約1.5小時車程。作為暹羅舊都，大城景點有最美行宮「邦芭茵夏宮」、樹中佛頭奇景、被譽為大城小吳哥窟的「柴瓦塔那蘭寺」，也是泰劇《天生一對》取景地，更因該劇掀起到大城穿古裝熱潮，帶動周邊傳統泰服租借，供遊客穿古裝逛大城遺跡拍美照。"
+            },
+            {
+            "attractionTitle": "古蹟樹中佛",
+            "attractionDescription": ""
+            },
+            {
+            "attractionTitle": "Lion Park 大城獅虎園",
+            "attractionDescription": ""
+            },
+            {
+            "attractionTitle": "愛侶灣四面佛",
+            "attractionDescription": ""
+            },
+            {
+            "attractionTitle": "中央百貨Central World",
+            "attractionDescription": ""
+            },
+            {
+            "attractionTitle": "BIG C",
+            "attractionDescription": ""
+            }
+        ],
+        "meals": { "breakfast": "飯店內", "lunch": "湄公河花園泰式餐350B", "dinner": "方便逛街 敬請自理" },
+        "hotel": "曼谷Sriwaree Airport / IBIS Style 50/ Jazzotel / New Town In Town / Medison/Iconic Ari 或同等"
+      },
+      {
+        "day": "第 3 天",
+        "dayDescription": "",
+        "attractions": [
+          {
+            "attractionTitle": "J Park日本村",
+            "attractionDescription": ""
+          },
+          {
+            "attractionTitle": "泰式按摩2小時",
+            "attractionDescription": ""
+          },
+          {
+            "attractionTitle": "ALL STAR夕陽號-浪漫巡航",
+            "attractionDescription": ""
+          },
+          {
+            "attractionTitle": "美軍俱樂部步行街",
+            "attractionDescription": ""
+          }
+        ],
+        "meals": { "breakfast": "飯店內", "lunch": "日本村~敬請自理", "dinner": "船上自助晚餐" },
+        "hotel": "芭達雅Crystal Palace/ Uniqe/M hotel/Aiyara Palace/SN Connx/ J hotel 或同級"
+      },
+      {
+        "day": "第 4 天",
+        "dayDescription": "",
+        "attractions": [
+          {
+            "attractionTitle": "格蘭島出海",
+            "attractionDescription": ""
+          },
+          {
+            "attractionTitle": "班尼克藝術屋 HOUSE OF BENEDICT",
+            "attractionDescription": ""
+          }
+        ],
+        "meals": { "breakfast": "飯店內", "lunch": "藍英石火山餐350B", "dinner": "活海鮮自助燒烤啤酒無限" },
+        "hotel": "芭達雅Crystal Palace/ Uniqe/M hotel/Aiyara Palace/SN Connx/ J hotel 或同級"
+      },
+      {
+        "day": "第 5 天",
+        "dayDescription": "",
+        "attractions": [
+          {
+            "attractionTitle": "爽泰莊園",
+            "attractionDescription": ""
+          },
+          {
+            "attractionTitle": "芭達雅老虎園",
+            "attractionDescription": ""
+          },
+          {
+            "attractionTitle": "TERMINAL 21 航廈百貨",
+            "attractionDescription": ""
+          }
+        ],
+        "meals": { "breakfast": "飯店內", "lunch": "古式手抓飯+泰舞秀", "dinner": "方便逛街 敬請自理" },
+        "hotel": "曼谷Sriwaree Airport / IBIS Style 50/ Jazzotel / New Town In Town / Medison/Iconic Ari 或同等"
+      },
+      {
+        "day": "第 6 天",
+        "dayDescription": "",
+        "attractions": [],
+        "meals": { "breakfast": "飯店內自助餐", "lunch": "醉心樓泰式餐", "dinner": "XXX" },
+        "hotel": "甜蜜溫暖的家"
+      }
+    ],
+    "remark": "以上行程景點順序或餐食安排，當地旅行社如遇不可抗拒之因素而有所變動時，本公司為使行程順利完成，保留調整及更動之權利，不便之處敬請見諒。"
+  }
