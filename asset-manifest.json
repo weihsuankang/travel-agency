@@ -1,8 +1,9 @@
 {
   "files": {
     "main.css": "/travel-agency/static/css/main.ff02f4b5.css",
-    "main.js": "/travel-agency/static/js/main.fad31a5c.js",
-    "static/js/64.5f82405c.chunk.js": "/travel-agency/static/js/64.5f82405c.chunk.js",
+    "main.js": "/travel-agency/static/js/main.c17a7ac0.js",
+    "static/js/64.04bb9007.chunk.js": "/travel-agency/static/js/64.04bb9007.chunk.js",
+    "static/js/629.3f5f0bb9.chunk.js": "/travel-agency/static/js/629.3f5f0bb9.chunk.js",
     "static/js/453.c2d24efb.chunk.js": "/travel-agency/static/js/453.c2d24efb.chunk.js",
     "static/media/pattaya.jpg": "/travel-agency/static/media/pattaya.9547574714df70e227cc.jpg",
     "static/media/backgroundPicture.jpg": "/travel-agency/static/media/backgroundPicture.9e56bad0aeff82225b48.jpg",
@@ -10,11 +11,11 @@
     "static/media/shrimp.jpg": "/travel-agency/static/media/shrimp.83d3400313bdb97be973.jpg",
     "index.html": "/travel-agency/index.html",
     "main.ff02f4b5.css.map": "/travel-agency/static/css/main.ff02f4b5.css.map",
-    "main.fad31a5c.js.map": "/travel-agency/static/js/main.fad31a5c.js.map",
+    "main.c17a7ac0.js.map": "/travel-agency/static/js/main.c17a7ac0.js.map",
     "453.c2d24efb.chunk.js.map": "/travel-agency/static/js/453.c2d24efb.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.ff02f4b5.css",
-    "static/js/main.fad31a5c.js"
+    "static/js/main.c17a7ac0.js"
   ]
 }
