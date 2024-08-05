@@ -42,7 +42,7 @@
       "last 1 safari version"
     ]
   },
-  "homepage": "https://weihsuankang.github.io/travel-agency/homepage",
+  "homepage": "https://weihsuankang.github.io/travel-agency",
   "devDependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "gh-pages": "^6.1.1"
